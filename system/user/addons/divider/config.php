@@ -3,7 +3,7 @@
 if (! defined('DIVIDER_NAME'))
 {
 	define('DIVIDER_NAME', 'Divider');
-	define('DIVIDER_VERSION', '1.1.0');
+	define('DIVIDER_VERSION', '1.1.1');
 }
 
 $config['name']    = DIVIDER_NAME;

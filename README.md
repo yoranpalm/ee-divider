@@ -1,7 +1,11 @@
 # ee-divider
-Displays a divider with centered text on the Publish Page
+Displays a divider with text on the Publish Page
 
 ## Changelog
+### Version 1.1.1
+Release Date: September 19, 2020
+- Removed jQuery script from footer because it conflicted with relationships fields
+
 ### Version 1.1.0
 Release Date: September 19, 2020
 - New styling for separator

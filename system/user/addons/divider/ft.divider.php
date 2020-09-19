@@ -22,7 +22,12 @@ class Divider_ft extends EE_Fieldtype {
     public function __construct()
 	{
         ee()->lang->loadfile('divider');
-        ee()->cp->add_to_foot('
+        ee()->cp->add_to_head('
+            <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+            crossorigin="anonymous"></script>
+            <script>
             $(document).ready(function(){
                 $(".separator").closest("fieldset").addClass("fieldset-divider");
             });

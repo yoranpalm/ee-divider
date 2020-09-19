@@ -22,6 +22,17 @@ class Divider_ft extends EE_Fieldtype {
     public function __construct()
 	{
         ee()->lang->loadfile('divider');
+        ee()->cp->add_to_foot('
+            <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+            crossorigin="anonymous"></script>
+            <script>
+            $(document).ready(function(){
+                $(".separator").closest("fieldset").addClass("fieldset-divider");
+            });
+            </script>
+        ');
 	}
 
     // --------------------------------------------------------------------
@@ -34,27 +45,27 @@ class Divider_ft extends EE_Fieldtype {
         }
         
         return '<style>
+        .fieldset-divider {
+            border-bottom: 1px solid #ccc !important;
+            border-top: 1px solid #ccc !important;
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px 20px;
+        }
+        .fieldset-divider .field-instruct {
+            display: none;
+        }
         .separator {
             display: flex;
-            align-items: center;
-            text-align: center;
-            vertical-align: middle;
-            font-weight: bold;
-            color: #333;
+            color: #666;
+            font-size: 16px !important;
         }
-        .separator::before, .separator::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid #000;
-        }
-        .separator::before {
-            margin-right: .30em;
-        }
-        .separator::after {
-            margin-left: .30em;
+        .separator span {
+            color: #009ae1;
+            padding-right: 5px;
         }
         </style>
-        <div class="separator">' . $this->settings['field_settings']['text'] . '</div>';
+        <div class="separator"><span>•</span>' . $this->settings['field_settings']['text'] . '</div>';
     }
 
     // --------------------------------------------------------------------
@@ -71,7 +82,8 @@ class Divider_ft extends EE_Fieldtype {
 				'fields' => array(
 					'text' => array(
 						'type' => 'text',
-						'value' => (!isset($data['text']) OR $data['text'] == '') ? '' : $data['text']
+                        'value' => (!isset($data['text']) OR $data['text'] == '') ? '' : $data['text'],
+                        'required' => TRUE
 					)
 				)
 			)
